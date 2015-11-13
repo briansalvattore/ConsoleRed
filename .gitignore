@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-=======
+
 # Built application files
 *.apk
 *.ap_
@@ -34,4 +26,3 @@ proguard/
 
 # Log Files
 *.log
->>>>>>> 3b98f6bb74cf43fe40e3548e63da2b63a9dc11b4
