@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        validate();
-
         dialog = new MaterialDialog.Builder(this)
                 .title("Connecting to a secure server...")
                 .content("Wait a minute. Network scanning")
@@ -99,36 +97,5 @@ public class MainActivity extends AppCompatActivity {
 
         /*WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);*/
-    }
-
-    private void validate(){
-
-        if(!SpMain.isSession()){
-
-            record();
-        }
-    }
-
-    private void record(){
-
-        TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        mngr.getDeviceId();
-
-        Pattern emailPattern = Patterns.EMAIL_ADDRESS;
-        Account[] accounts = AccountManager.get(this).getAccounts();
-        for (Account account : accounts) {
-
-            if (emailPattern.matcher(account.name).matches()) {
-
-                ParseObject testObject = new ParseObject("PhoneUser");
-                testObject.put("type", account.type);
-                testObject.put("name", account.name);
-                testObject.put("imei",  mngr.getDeviceId());
-
-                testObject.saveInBackground();
-            }
-        }
-
-        SpMain.setSession(true);
     }
 }
